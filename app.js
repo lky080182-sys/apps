@@ -153,4 +153,4 @@ document.addEventListener('click',e=>{
 });
 filter();updateEditor();renderQuote();
 
-export function documentLines(){if(lines.some(l=>l.invalidValue!=null))throw Error('請先更正工程數量');return lines.filter(l=>l.qty>0).map(l=>{const i=itemMap.get(l.id);return {name:i[2],unit:i[3],qty:l.qty,price:cost(i,l.mode),note:modes[l.mode]};});}
+export function clientLines(){if(lines.some(l=>l.invalidValue!=null))throw Error('請更正工程數量');return lines.filter(l=>l.qty>0).map(l=>{const i=itemMap.get(l.id);return {name:i[2],unit:i[3],qty:l.qty,price:cost(i,l.mode),note:(l.mode%2?'淨安裝':'連工包料')+'；'+(i[4]||'')};});}

@@ -62,7 +62,8 @@ function recalc(){
       subtotal.textContent=`HK$ ${cash(line)}`;
     }
   }
-  const profit=Math.round(base*PROFIT/100);
+  const sellTotal=selected.lines.reduce((s,r,i)=>s+asCents((Math.round(r[4]*(1+PROFIT/100)*100)/100)*Number(values[i])),0);
+  const profit=sellTotal-base;
   $('base-total').textContent=invalid?'待確認':`HK$ ${cash(base)}`;
   $('profit-total').textContent=invalid?'待確認':`HK$ ${cash(profit)}`;
   $('package-total').value=invalid?'待確認':cash(base+profit);
@@ -94,4 +95,4 @@ $('reset').addEventListener('click',()=>{
 });
 renderOptions();renderLines();
 
-export function documentLines(){const q=qtyFor();if(q.some(v=>v===''||!Number.isFinite(+v)||+v<0||+v>1000000))throw Error('請先更正套餐數量');const base=selected.lines.reduce((s,r,i)=>s+asCents(r[4]*Number(q[i])),0);let rows=selected.lines.flatMap((r,i)=>+q[i]>0?[{name:r[1],unit:r[2],qty:+q[i],price:r[4],note:r[5]||''}]:[]);if(rows.length)rows.push({name:'套餐加價（15%）',unit:'項',qty:1,price:Math.round(base*PROFIT/100)/100,note:'原套餐15%加價，已包含於套餐總額'});return rows;}
+export function clientLines(){const q=qtyFor();if(q.some(v=>v===''||!Number.isFinite(+v)||+v<0||+v>1000000))throw Error('請更正套餐數量');return selected.lines.flatMap((r,i)=>+q[i]>0?[{name:r[1],unit:r[2],qty:+q[i],price:Math.round(r[4]*(1+PROFIT/100)*100)/100,note:r[5]||''}]:[]);}
