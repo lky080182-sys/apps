@@ -1,1 +1,1 @@
-覆蓋同名company-quote.js。公司報價單單價一律向上取整至整數港元；整數維持不變。小計按取整後單價計算。此更新不修改packages.js。
+同時覆蓋document-tools.js及company-quote.js。兩個報價生成入口都已改為單價向上取整、整數顯示，小計按取整單價計算。更新前保存資料。覆蓋後重新載入網站並重新生成報價；舊HTML及PDF不會變。此包不修改packages.js。
