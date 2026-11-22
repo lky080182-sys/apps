@@ -11,14 +11,13 @@
   <script type="module" src="app.js"></script>
   <script type="module" src="package-app.js"></script>
   <script type="module" src="tabs.js"></script>
-<link rel="stylesheet" href="company-quote.css"><script type="module" src="company-quote.js"></script></head>
+<link rel="stylesheet" href="document-tools.css"><script type="module" src="document-tools.js"></script></head>
 <body>
   <header class="top"><div class="frame top-inner"><img class="company-logo" src="company-logo.jpeg" width="500" height="500" alt=""><span class="wordmark">新榮耀工程有限公司<small>裝修報價計算器 · 港幣 HKD</small></span></div></header>
   <main class="frame">
     <div class="app-tabs" role="tablist" aria-label="切換計算器">
       <button type="button" role="tab" id="tab-quote" aria-selected="true" aria-controls="quote-view">工程報價</button>
       <button type="button" role="tab" id="tab-package" aria-selected="false" aria-controls="package-view" tabindex="-1">套餐計價</button>
-      <button type="button" role="tab" id="tab-company" aria-selected="false" aria-controls="company-view" tabindex="-1">公司報價單</button>
     </div>
     <section id="quote-view" role="tabpanel" aria-labelledby="tab-quote">
     <header class="masthead"><div><p class="eyebrow"><span></span> 工程報價工作台</p><h1>香港裝修報價計算器</h1><p class="intro">直接撳選項，逐項計價，或者將多個工序加埋一齊計。</p></div><span class="meta">247 個 Excel 工程項目</span></header>
@@ -98,7 +97,6 @@
       </div>
       <footer><p>按你提供嘅 Excel 二判明細逐項重算，不採用原表唔一致嘅固定總數。只計所列工序，唔會自動另加未列明物料或費用。</p><p>報價只供預算參考。頁面重新整理後，數量會回復套餐預設。</p></footer>
     </section>
-<section id="company-view" role="tabpanel" aria-labelledby="tab-company" hidden></section>
   </main>
 </body>
 </html>

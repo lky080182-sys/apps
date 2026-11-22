@@ -153,7 +153,4 @@ document.addEventListener('click',e=>{
 });
 filter();updateEditor();renderQuote();
 
-export function quoteSnapshot(){
- if(lines.some(l=>l.invalidValue!=null))throw Error('請先更正工程數量');
- return lines.filter(l=>l.qty>0).map(l=>{const i=itemMap.get(l.id);return {name:i[2],unit:i[3],qty:l.qty,price:cost(i,l.mode),supply:modes[l.mode],note:i[4]||''};});
-}
+export function documentLines(){if(lines.some(l=>l.invalidValue!=null))throw Error('請先更正工程數量');return lines.filter(l=>l.qty>0).map(l=>{const i=itemMap.get(l.id);return {name:i[2],unit:i[3],qty:l.qty,price:cost(i,l.mode),note:modes[l.mode]};});}
